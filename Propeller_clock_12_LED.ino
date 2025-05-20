@@ -5,12 +5,15 @@
 
 Predelano po projektu:
  https://www.electricaltechnology.org/2022/02/usb-propeller-led-fan-clock-circuit.html
+
+ 1 notranja LED
+ 12 zunanja
 */
-int LED1 = 2;
+/*int LED1 = 2;   ni priklopljena, ker je kar na stalnem napajanju
 int LED2 = 3;
 int LED3 = 4;
 int LED4 = 5;
-int LED5 = 6;
+int LED5 = 6;           originalna konfiguracija
 int LED6 = 7;
 int LED7 = 8;
 int LED8 = 9;
@@ -20,6 +23,21 @@ int LED11 = 12;
 int LED12 = A1;
 
 int sensorPin = A0;
+*/
+
+int LED2 = 10;       // Prestevilceno
+int LED3 = 11;
+int LED4 = 12;
+int LED5 = 13;
+int LED6 = A0;
+int LED7 = A1;
+int LED8 = A2;
+int LED9 = A3;
+int LED10 = A4;
+int LED11 = A5;
+int LED12 = A1;
+
+int sensorPin = 9;
 
 //int minuteSensor = A7;
 //int hourSensor = A6;
@@ -34,7 +52,7 @@ byte seconds = 00; // set seconds
 int val;
 
 void setup() {
-pinMode(LED1,OUTPUT);
+//pinMode(LED1,OUTPUT);
 pinMode(LED2,OUTPUT);
 pinMode(LED3,OUTPUT);
 pinMode(LED4,OUTPUT);
@@ -168,7 +186,7 @@ void loop() {
 
   void displayClear()
   {
-  digitalWrite(LED1,LOW);
+  //digitalWrite(LED1,LOW);
   digitalWrite(LED2,LOW);
   digitalWrite(LED3,LOW);
   digitalWrite(LED4,LOW);
@@ -235,9 +253,9 @@ void loop() {
 
   void drawInner_Circle()
     {
-    digitalWrite(LED1,HIGH);
+    //digitalWrite(LED1,HIGH);
     delayMicroseconds(30);
-    digitalWrite(LED1,LOW);
+    //digitalWrite(LED1,LOW);
     }  
     
 
