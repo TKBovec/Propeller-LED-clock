@@ -35,7 +35,7 @@ int LED8 = A2;
 int LED9 = A3;
 int LED10 = A4;
 int LED11 = A5;
-int LED12 = A1;
+int LED12 = 8;
 
 int sensorPin = 9;
 
@@ -52,6 +52,7 @@ byte seconds = 00; // set seconds
 int val;
 
 void setup() {
+Serial.begin(9600);  
 //pinMode(LED1,OUTPUT);
 pinMode(LED2,OUTPUT);
 pinMode(LED3,OUTPUT);
@@ -95,16 +96,19 @@ delay(1000);
 void loop() {
   {
   val = digitalRead(sensorPin); // hall senzor odcitek
-
   while (val == LOW)
   {
+  Serial.println("HALL OFF");
   val = digitalRead(sensorPin);
   }
-// ko gre hall na HIGH, poveča za 1 sekundo
+// ko gre hall na LOW, poveča za 1 sekundo
+  Serial.println("HALL ON 111111111");
   if (millis() >= (previousTime))
   {
   previousTime = previousTime + 1000;
   seconds = seconds+1;
+  Serial.println(seconds);
+  //Serial.println("Hall");
   if (seconds == 60)
   {
   seconds = 0;
