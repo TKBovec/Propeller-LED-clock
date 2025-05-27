@@ -96,13 +96,13 @@ delay(1000);
 void loop() {
   {
   val = digitalRead(sensorPin); // hall senzor odcitek
-  while (val == LOW)
+  while (val == HIGH)
   {
-  Serial.println("HALL OFF");
+  //Serial.println("HALL OFF");
   val = digitalRead(sensorPin);
   }
 // ko gre hall na LOW, poveča za 1 sekundo
-  Serial.println("HALL ON 111111111");
+  //Serial.println("HALL ON");
   if (millis() >= (previousTime))
   {
   previousTime = previousTime + 1000;
