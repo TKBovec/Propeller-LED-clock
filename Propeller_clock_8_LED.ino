@@ -59,7 +59,7 @@ pinMode(LED6,OUTPUT);
 pinMode(LED7,OUTPUT);
 pinMode(LED8,OUTPUT);
 
-pinMode(sensorPin,INPUT_PULLUP);
+//pinMode(sensorPin,INPUT_PULLUP);
 
 if(hours == 12)
 hours = 0;
@@ -89,13 +89,13 @@ delay(1000);
 void loop() {
   {
   val = digitalRead(sensorPin); // hall senzor odcitek
-  while (val == LOW)
+  while (val == HIGH)
   {
-  Serial.println("HALL OFF");
+  //Serial.println("HALL OFF");
   val = digitalRead(sensorPin);
   }
-// ko gre hall na LOW, poveča za 1 sekundo
-  Serial.println("HALL ON");
+// ko gre hall na HIGH, poveča za 1 sekundo
+  //Serial.println("HALL ON");
   if (millis() >= (previousTime))
   {
   previousTime = previousTime + 1000;
@@ -157,13 +157,13 @@ void loop() {
   if(propeller_posn == seconds)
   drawSecondsHand();
 
-  delayMicroseconds(5000); // for LED pixel width (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
+  delayMicroseconds(100); // for LED pixel width (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
 
   displayClear();
 
   drawInner_Circle();
 
-  delayMicroseconds(10000); // for the gap between LED pixels/minutes markers (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
+  delayMicroseconds(450); // for the gap between LED pixels/minutes markers (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
 
   n++;
   propeller_posn++;
@@ -173,7 +173,7 @@ void loop() {
 
   val = digitalRead(sensorPin);
 
-  while (val == HIGH)
+  while (val == LOW)
   {
   val = digitalRead(sensorPin);
   }
