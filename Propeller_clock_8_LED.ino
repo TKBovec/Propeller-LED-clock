@@ -94,7 +94,7 @@ void loop() {
   //Serial.println("HALL OFF");
   val = digitalRead(sensorPin);
   }
-// ko gre hall na HIGH, poveča za 1 sekundo
+// ko gre hall na LOW, poveča za 1 sekundo
   //Serial.println("HALL ON");
   if (millis() >= (previousTime))
   {
